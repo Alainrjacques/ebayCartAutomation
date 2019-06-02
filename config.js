@@ -2,7 +2,7 @@ exports.config = {
     directConnect: true,
     baseUrl: 'https://www.ebay.com.au/',
 
-    capabilities: {
+    multiCapabilities: [{
         browserName: 'chrome',
         chromeOptions: {
             // 'excludeSwitches': ['enable-automation'],
@@ -12,8 +12,12 @@ exports.config = {
                 //  'headless=true','disable-gpu=true',
             ],
         },
+        shardTestFiles: true,
         loggingPrefs: { browser: 'SEVERE' } // OFF, SEVERE, WARNING, INFO, DEBUG, ALL
-    },
+    },{
+        browserName: 'firefox',
+        shardTestFiles: true
+    }],
 
     allScriptsTimeout: 120000,
 
